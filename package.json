@@ -10,10 +10,12 @@
     "prettify": "prettier -c --write \"*/**\""
   },
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
     "next": "latest",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.0.1",
+    "swr": "^0.1.18",
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
