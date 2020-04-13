@@ -4,16 +4,16 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({ showSpinner: false, speed: 1000 });
 
 const NProgressHandler = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url: string) =>
-      url !== router.pathname && NProgress.start();
-    const handleComplete = (url: string) =>
-      url !== router.pathname && NProgress.done();
+    const handleStart = () => NProgress.start();
+    const handleComplete = () => {
+      NProgress.done();
+    };
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
