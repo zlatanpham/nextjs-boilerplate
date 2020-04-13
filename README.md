@@ -1,6 +1,9 @@
-# TypeScript & Styled Components Next.js example
+# NextJS Boilerplate
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
+- [x] typescript
+- [x] styled-components
+- [x] tailwind + twin.macro
+- [x] swr + isomorphic-unfetch
 
 ## Install it and run:
 
