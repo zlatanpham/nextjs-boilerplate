@@ -1,9 +1,17 @@
 import fetch from 'isomorphic-unfetch';
 
+export type FetcherError = Error & { response: Response };
+
 export default async function fetcher<JSON = any>(
   input: RequestInfo,
   init?: RequestInit,
 ): Promise<JSON> {
   const res = await fetch(input, init);
-  return await res.json();
+  if (res.ok) {
+    return await res.json();
+  } else {
+    const error = new Error(res.statusText) as FetcherError;
+    error.response = res;
+    return Promise.reject(error);
+  }
 }

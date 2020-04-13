@@ -1,41 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
-import fetcher from 'libs/fetcher';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import { GetServerSideProps, NextPage } from 'next';
+import APIs, { ReposResponse } from 'libs/apis';
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const { query } = context;
   const { user, repo } = query;
-  const data = await fetcher<RepoResponse>(
-    `https://api.github.com/repos/${user}/${repo}`,
-  );
+  const data = await APIs.Repository.getBySlug({
+    user: user.toString(),
+    repo: repo.toString(),
+  });
 
   return { props: { data } };
 };
 
-interface RepoResponse {
-  forks_count: number;
-  stargazers_count: number;
-  watchers: number;
-}
-
-const RepoPage: NextPage<{ data: RepoResponse }> = props => {
+const RepoPage: NextPage<{ data: ReposResponse }> = props => {
   const { data: initialData } = props;
   const {
     query: { user, repo },
   } = useRouter();
 
-  const { data, isValidating } = useSWR<RepoResponse>(
-    `https://api.github.com/repos/${user}/${repo}`,
-    fetcher,
+  const { data, isValidating } = useSWR<ReposResponse>(
+    [APIs.Repository.getBySlugURL, user, repo],
+    (_, user, repo) => APIs.Repository.getBySlug({ user, repo }),
     {
       initialData,
     },
   );
 
-  const { data: popularRepos } = useSWR<string[]>('/api/data', fetcher);
+  const { data: popularRepos } = useSWR<string[]>(APIs.Repository.getURL, () =>
+    APIs.Repository.get(),
+  );
 
   return (
     <div style={{ textAlign: 'center' }}>
