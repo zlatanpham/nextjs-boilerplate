@@ -35,7 +35,6 @@
     "@types/react-dom": "16.9.8",
     "@types/styled-components": "5.1.0",
     "@zeit/next-css": "^1.0.1",
-    "autoprefixer": "^9.8.4",
     "babel-jest": "^26.1.0",
     "babel-plugin-inline-react-svg": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.7",
