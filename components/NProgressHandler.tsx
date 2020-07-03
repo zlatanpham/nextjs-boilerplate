@@ -4,36 +4,12 @@ import NProgress from 'nprogress';
 
 NProgress.configure({ showSpinner: false, speed: 1000 });
 
-// Include method to turn off the progressbar for some cases like shallow routing
-export const nprogressUtil = (() => {
-  let blocked = false;
-  return {
-    isBlocked: function () {
-      return blocked;
-    },
-    setBlock: function () {
-      blocked = true;
-      setTimeout(() => {
-        blocked = false;
-      });
-    },
-  };
-})();
-
-export default function NProgressHandler() {
+const NProgressHandler = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = () => {
-      if (nprogressUtil.isBlocked()) {
-        return;
-      }
-      NProgress.start();
-    };
+    const handleStart = () => NProgress.start();
     const handleComplete = () => {
-      if (nprogressUtil.isBlocked()) {
-        return;
-      }
       NProgress.done();
     };
 
@@ -49,4 +25,6 @@ export default function NProgressHandler() {
   });
 
   return null;
-}
+};
+
+export default NProgressHandler;
