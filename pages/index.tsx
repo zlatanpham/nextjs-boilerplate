@@ -15,7 +15,6 @@ export default () => {
   const { data } = useSWR<string[]>(APIs.Repository.getURL, () =>
     APIs.Repository.get(),
   );
-  console.log(data);
   return (
     <div>
       <Title className="underline opacity-50">My page</Title>
@@ -24,7 +23,7 @@ export default () => {
       <h1>Trending Projects</h1>
       <div>
         {data
-          ? data.map(project => (
+          ? data.map((project) => (
               <p key={project}>
                 <Link href="/[user]/[repo]" as={`/${project}`}>
                   <a>{project}</a>

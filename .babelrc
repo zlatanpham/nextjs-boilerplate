@@ -5,6 +5,7 @@
     "@babel/plugin-proposal-optional-chaining",
     "macros",
     "@babel/plugin-transform-react-jsx",
+    "inline-react-svg",
     [
       "styled-components",
       { "ssr": true, "displayName": true, "preprocess": false }
