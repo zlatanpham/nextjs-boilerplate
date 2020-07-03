@@ -4,4 +4,6 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+/* purgecss start ignore */
 @import './nprogress.css';
+/* purgecss end ignore */
