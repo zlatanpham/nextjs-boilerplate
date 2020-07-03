@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import '../styles/index.css';
 import App from 'next/app';
 import NProgressHandler from 'components/NProgressHandler';

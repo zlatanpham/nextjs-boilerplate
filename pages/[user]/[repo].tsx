@@ -24,21 +24,23 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
 
   const { data, isValidating } = useSWR<ReposResponse>(
     [APIs.Repository.getBySlugURL, user, repo],
-    (_, user, repo) => APIs.Repository.getBySlug({ user, repo }),
+    (_, userData, repoData) =>
+      APIs.Repository.getBySlug({ user: userData, repo: repoData }),
     {
       initialData,
     },
   );
 
-  const { data: popularRepos } = useSWR<string[]>(APIs.Repository.getURL, () =>
-    APIs.Repository.get(),
+  const { data: popularRepos } = useSWR<string[]>(
+    APIs.Repository.getURL,
+    () => {
+      return APIs.Repository.get();
+    },
   );
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 className="font-bold text-xl uppercase m-5">
-        {user}/{repo}
-      </h1>
+      <h1 className="font-bold text-xl uppercase m-5">{`${user}/${repo}`}</h1>
       {data && !isValidating ? (
         <div>
           <p>forks: {data.forks_count}</p>

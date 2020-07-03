@@ -8,10 +8,10 @@ NProgress.configure({ showSpinner: false, speed: 1000 });
 export const nprogressUtil = (() => {
   let blocked = false;
   return {
-    isBlocked: function () {
+    isBlocked() {
       return blocked;
     },
-    setBlock: function () {
+    setBlock() {
       blocked = true;
       setTimeout(() => {
         blocked = false;
