@@ -5,18 +5,18 @@ import { useRouter } from 'next/router';
 import { GetServerSideProps, NextPage } from 'next';
 import APIs, { ReposResponse } from 'libs/apis';
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { user, repo } = query;
   const data = await APIs.Repository.getBySlug({
-    user: user.toString(),
-    repo: repo.toString(),
+    user: (user || '').toString(),
+    repo: (repo || '').toString(),
   });
 
   return { props: { data } };
 };
 
-const RepoPage: NextPage<{ data: ReposResponse }> = props => {
+const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
   const { data: initialData } = props;
   const {
     query: { user, repo },
@@ -55,7 +55,7 @@ const RepoPage: NextPage<{ data: ReposResponse }> = props => {
       </Link>
       <hr />
       {popularRepos
-        ? popularRepos.map(project => (
+        ? popularRepos.map((project) => (
             <p key={project}>
               <Link href="/[user]/[repo]" as={`/${project}`}>
                 <a>{project}</a>

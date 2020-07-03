@@ -4,9 +4,27 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testRegex: TEST_REGEX,
   transform: {
-    '^.+\\.tsx?$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
   },
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  moduleNameMapper: {
+    '^components/(.*)$': '<rootDir>/components/$1',
+    '^utils/(.*)$': '<rootDir>/utils/$1',
+    '^constants/(.*)$': '<rootDir>/constants/$1',
+    '^pages/(.*)$': '<rootDir>/pages/$1',
+    '^context/(.*)$': '<rootDir>/context/$1',
+    '^libs/(.*)$': '<rootDir>/libs/$1',
+    '\\.(css|less|scss)$': '<rootDir>/config/jest/cssTransform.js',
+  },
+  testPathIgnorePatterns: [
+    '<rootDir>/.next/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/scripts/',
+  ],
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   collectCoverage: false,
   globals: {
@@ -17,4 +35,11 @@ module.exports = {
     },
   },
   preset: 'ts-jest',
+  collectCoverageFrom: [
+    '**/*.(ts|tsx)',
+    '!**/*.stories.js',
+    '!**/*.stories.tsx',
+    '!**/__stubs__/**',
+  ],
+  coverageProvider: 'v8',
 };
