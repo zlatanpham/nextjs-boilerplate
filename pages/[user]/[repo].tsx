@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import { GetServerSideProps, NextPage } from 'next';
@@ -31,40 +30,20 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
     },
   );
 
-  const { data: popularRepos } = useSWR<string[]>(
-    APIs.Repository.getURL,
-    () => {
-      return APIs.Repository.get();
-    },
-  );
-
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1 className="font-bold text-xl uppercase m-5">{`${user}/${repo}`}</h1>
+    <div>
+      <h1 className="text-4xl font-bold mb-8">
+        {user}/{repo}
+      </h1>
       {data && !isValidating ? (
-        <div>
-          <p>forks: {data.forks_count}</p>
-          <p>stars: {data.stargazers_count}</p>
-          <p>watchers: {data.watchers}</p>
-        </div>
+        <ul className="list-disc list-inside">
+          <li>forks: {data.forks_count}</li>
+          <li>stars: {data.stargazers_count}</li>
+          <li>watchers: {data.watchers}</li>
+        </ul>
       ) : (
         'loading...'
       )}
-      <br />
-      <br />
-      <Link href="/">
-        <a>Back</a>
-      </Link>
-      <hr />
-      {popularRepos
-        ? popularRepos.map((project) => (
-            <p key={project}>
-              <Link href="/[user]/[repo]" as={`/${project}`}>
-                <a>{project}</a>
-              </Link>
-            </p>
-          ))
-        : 'loading...'}
     </div>
   );
 };
