@@ -9,9 +9,9 @@ export default async function fetcher<JSON = any>(
   const res = await fetch(input, init);
   if (res.ok) {
     return await res.json();
-  } else {
-    const error = new Error(res.statusText) as FetcherError;
-    error.response = res;
-    return Promise.reject(error);
   }
+  const error = new Error(res.statusText) as FetcherError;
+  error.response = res;
+
+  return Promise.reject(error);
 }

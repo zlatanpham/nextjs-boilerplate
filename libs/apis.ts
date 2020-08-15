@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import fetcher from './fetcher';
 
 export interface GetReposParams {
@@ -13,11 +14,11 @@ export interface ReposResponse {
 
 export const Repository = {
   getURL: '/api/data',
-  get: function () {
+  get() {
     return fetcher<string[]>(this.getURL);
   },
   getBySlugURL: 'https://api.github.com/repos',
-  getBySlug: function (params: GetReposParams) {
+  getBySlug(params: GetReposParams) {
     return fetcher<ReposResponse>(
       `${this.getBySlugURL}/${params.user}/${params.repo}`,
     );
