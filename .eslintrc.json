@@ -1,0 +1,17 @@
+{
+  "extends": ["@zlph/eslint-config-react-app"],
+  "globals": {
+    "tw": true,
+    "chrome": true
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)", "**/*.js?(x)"],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-shadow": "off"
+      }
+    }
+  ]
+}
