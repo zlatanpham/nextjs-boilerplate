@@ -6,8 +6,10 @@ exports[`<Button/> Should match snapshot 1`] = `
   padding-right: 1.25rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background-color: #dd6b20;
-  color: #fff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(217,119,6,var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255,255,255,var(--tw-text-opacity));
   border-radius: 0.25rem;
 }
 

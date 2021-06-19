@@ -18,6 +18,7 @@ module.exports = {
   },
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
+    '<rootDir>/types/',
     '<rootDir>/node_modules/',
     '<rootDir>/scripts/',
   ],
@@ -37,6 +38,7 @@ module.exports = {
   preset: 'ts-jest',
   collectCoverageFrom: [
     '**/*.(ts|tsx)',
+    '!**/*.d.ts',
     '!**/*.stories.js',
     '!**/*.stories.tsx',
     '!**/__stubs__/**',
