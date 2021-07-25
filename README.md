@@ -5,12 +5,9 @@
 - [x] tailwind + twin.macro
 - [x] swr + isomorphic-unfetch
 
-## Install it and run:
+## Install and run:
 
 ```bash
-npm install
-npm run dev
-# or
-yarn
+yarn install
 yarn dev
 ```
