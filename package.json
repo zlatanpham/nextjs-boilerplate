@@ -7,7 +7,7 @@
     "start": "next start",
     "test": "jest",
     "test:ci": "jest --env=jsdom --coverage --watchAll=false --maxWorkers=2",
-    "prettify": "prettier -c --write \"*/**\"",
+    "format": "prettier -c --write \"*/**\"",
     "lint": "eslint . --ext .ts,.tsx,.js && stylelint '**/*.css'",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --fix && stylelint '**/*.css' --fix",
     "postinstall": "husky install"
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@prettier/plugin-xml": "^1.0.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.24",
