@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import repos from 'constants/repo';
-import tw from 'twin.macro';
+import React from 'react'
+import Link from 'next/link'
+import repos from 'constants/repo'
+import tw from 'twin.macro'
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

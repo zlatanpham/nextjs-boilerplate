@@ -1,25 +1,25 @@
-import React from 'react';
-import useSWR from 'swr';
-import { useRouter } from 'next/router';
-import { GetServerSideProps, NextPage } from 'next';
-import APIs, { ReposResponse } from 'libs/apis';
+import React from 'react'
+import useSWR from 'swr'
+import { useRouter } from 'next/router'
+import { GetServerSideProps, NextPage } from 'next'
+import APIs, { ReposResponse } from 'libs/apis'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { query } = context;
-  const { user, repo } = query;
+  const { query } = context
+  const { user, repo } = query
   const data = await APIs.Repository.getBySlug({
     user: (user || '').toString(),
     repo: (repo || '').toString(),
-  });
+  })
 
-  return { props: { data } };
-};
+  return { props: { data } }
+}
 
 const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
-  const { data: initialData } = props;
+  const { data: initialData } = props
   const {
     query: { user, repo },
-  } = useRouter();
+  } = useRouter()
 
   const { data, isValidating } = useSWR<ReposResponse>(
     [APIs.Repository.getBySlugURL, user, repo],
@@ -27,7 +27,7 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
     {
       initialData,
     },
-  );
+  )
 
   return (
     <div>
@@ -44,7 +44,7 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
         'loading...'
       )}
     </div>
-  );
-};
+  )
+}
 
-export default RepoPage;
+export default RepoPage

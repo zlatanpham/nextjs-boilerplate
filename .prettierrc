@@ -1,9 +1,12 @@
 {
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
   "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
+  "proseWrap": "always",
+  "semi": false,
   "singleQuote": true,
+  "tabWidth": 2,
   "trailingComma": "all",
   "xmlWhitespaceSensitivity": "ignore"
 }

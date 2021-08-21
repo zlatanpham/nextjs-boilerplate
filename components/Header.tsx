@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
-import tw from 'twin.macro';
+import React from 'react'
+import Link from 'next/link'
+import tw from 'twin.macro'
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
         </Link>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

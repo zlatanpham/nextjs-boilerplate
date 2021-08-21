@@ -1,5 +1,5 @@
-import React from 'react';
-import tw from 'twin.macro';
+import React from 'react'
+import tw from 'twin.macro'
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         This project is maintained by xxx. View the repo on Github.
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

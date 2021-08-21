@@ -1,14 +1,14 @@
-import '../styles/index.css';
-import React from 'react';
-import App from 'next/app';
-import NProgressHandler from 'components/NProgressHandler';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import tw from 'twin.macro';
+import '../styles/index.css'
+import React from 'react'
+import App from 'next/app'
+import NProgressHandler from 'components/NProgressHandler'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import tw from 'twin.macro'
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props
 
     return (
       <div css={tw`flex min-h-screen flex-col justify-between`}>
@@ -21,7 +21,7 @@ class MyApp extends App {
         </main>
         <Footer />
       </div>
-    );
+    )
   }
 }
-export default MyApp;
+export default MyApp

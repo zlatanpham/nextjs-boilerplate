@@ -3,6 +3,6 @@ const repos = [
   'vuejs/vuepress',
   'rust-lang/rust',
   'zeit/next.js',
-];
+]
 
-export default repos;
+export default repos
