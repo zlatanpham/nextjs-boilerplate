@@ -1,7 +1,6 @@
 # NextJS Boilerplate
 
 - [x] typescript
-- [x] styled-components
 - [x] tailwind + twin.macro
 - [x] swr + isomorphic-unfetch
 

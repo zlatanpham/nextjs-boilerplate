@@ -1,11 +1,4 @@
 {
   "presets": ["next/babel"],
-  "plugins": [
-    "macros",
-    "inline-react-svg",
-    [
-      "styled-components",
-      { "ssr": true, "displayName": false, "preprocess": false }
-    ]
-  ]
+  "plugins": ["macros", "inline-react-svg"]
 }
