@@ -25,7 +25,7 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
     [APIs.Repository.getBySlugURL, user, repo],
     (_, user, repo) => APIs.Repository.getBySlug({ user, repo }),
     {
-      initialData,
+      fallbackData: initialData,
     },
   )
 
