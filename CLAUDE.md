@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a minimal Next.js 15 boilerplate for quickly starting new projects. It provides only the essential setup with no example pages or complex components - just a clean foundation.
+This is a minimal Next.js 16 boilerplate for quickly starting new projects. It provides only the essential setup with no example pages or complex components - just a clean foundation.
 
 ## Commands
 
@@ -26,7 +26,7 @@ This is a minimal Next.js 15 boilerplate for quickly starting new projects. It p
 
 ### Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4 with CSS variables
 - **UI Components**: shadcn/ui (New York style) - ready to add components
