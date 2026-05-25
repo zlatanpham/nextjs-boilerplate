@@ -1,24 +1,26 @@
 # Next.js Boilerplate
 
-A minimal, clean starter template built with Next.js 15, TypeScript, and Tailwind CSS.
+A minimal, clean starter template built with Next.js 16, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- ⚡ **Next.js 15** with App Router and Turbopack
-- 📝 **TypeScript** for type safety
-- 🎨 **Tailwind CSS v4** for styling
-- 🧩 **shadcn/ui** ready to use
-- 🧪 **Vitest** for testing
+- ⚡ **Next.js 16** with App Router and Turbopack
+- 📝 **TypeScript 6** (strict mode) for type safety
+- 🎨 **Tailwind CSS v4** with CSS variables and `tw-animate-css`
+- 🧩 **shadcn/ui** (New York) on the unified `radix-ui` package
+- 📋 **React Hook Form** + **Zod** for form handling and validation
+- 🎭 **lucide-react** icons
+- 🧪 **Vitest** + React Testing Library for testing
 - 📱 **Responsive** design
 - 🎯 **ESLint** configured
-- 💅 **Prettier** for code formatting
+- 💅 **Prettier** with `prettier-plugin-tailwindcss` for code formatting
 - 🪝 **Husky** + **lint-staged** for pre-commit hooks
 
 ## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - pnpm (recommended) or npm
 
 ### Installation
@@ -59,14 +61,16 @@ Open [http://localhost:3000](http://localhost:3000) to see the application.
 
 ```
 src/
-├── app/              # Next.js App Router
-│   ├── globals.css   # Global styles
-│   ├── layout.tsx    # Root layout
-│   └── page.tsx      # Home page
-├── components/       # React components
-│   └── ui/          # shadcn/ui components
-└── lib/             # Utility functions
-    └── utils.ts     # Helper functions
+├── app/                  # Next.js App Router
+│   ├── globals.css       # Global styles and Tailwind directives
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/           # React components
+│   ├── copy-button.tsx   # Example component
+│   └── ui/               # shadcn/ui components (button, card, dialog, form, …)
+├── lib/                  # Utility functions
+│   └── utils.ts          # cn() helper for className merging
+└── test-setup.ts         # Vitest setup (jest-dom matchers)
 ```
 
 ## Adding UI Components
